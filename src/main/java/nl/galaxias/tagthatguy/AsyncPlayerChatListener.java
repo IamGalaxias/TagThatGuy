@@ -25,7 +25,9 @@ public class AsyncPlayerChatListener implements Listener {
             if(event.getMessage().contains(name)) {
                 world.playSound(player.getLocation(), Sound.PORTAL_TRIGGER, 10, 1);
 
-                event.getMessage().replaceAll(name, ChatColor.RED + "" + ChatColor.BOLD + name + ChatColor.RESET);
+                String newMessage = event.getMessage().replaceAll(name, ChatColor.RED + "" + ChatColor.BOLD + name + ChatColor.RESET);
+
+                event.setMessage(newMessage);
             }
         }
     }
